@@ -5,7 +5,7 @@ class heroes:
         self.damage_type = damage_type
         
     def describe(self):
-        print(f"{self.name} is a {self.role} hero with {self.damage_type} damage. ")
+        print(f"{self.name} is a {self.role} hero with {self.damage_type} power. ")
         
     def __str__(self):
         return f"{self.name} is a {self.role} hero with {self.damage_type} damage. "
