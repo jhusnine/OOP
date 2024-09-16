@@ -1,0 +1,112 @@
+#week 5
+
+#INHERITANCE
+"- subclass
+
+"Parent class - base class
+"child class - derived class
+
+#PARENT CLASS
+class Animal():
+    def __init__(self, name, type)
+    self.name = name
+    self.type = type
+
+    def describeAnimal(self):
+    print(f"{self.name} is a {self.type}")
+
+- parent class with child class
+
+class Vehicle(): # parent class
+    def __init__(self, brand, model, fuel_type):
+        self.brand = brand
+        self.model = model
+        self.fuel_type = fuel_type
+        
+    def describeVehicle(self):
+        print(f"{self.brand} has {self.model} with {self.fuel_type}")
+
+class Motorcycle(Vehicle): #child class
+    pass
+
+honda = Motorcycle("Honda","click 123", "gasoline.")
+honda.describeVehicle()
+
+class Car(Vehicle):
+    pass
+honda = Car("Toyota","vigo", "electric.")
+honda.describeVehicle()
+
+
+-child class __init__
+class Phone():
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+        
+    def describePhone(self):
+        print(f"{self.brand} has {self.model}")
+        
+class Android(Phone):
+    def __init__(self, brand, model):
+        Phone.__init__(self, brand, model)
+        
+iphone = Android("Iphone", "xr")
+iphone.describePhone()
+
+-super().
+class Toy():
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+    def describeToy(self):
+        print(f"{self.name} has {self.price}")
+        
+class Car(Toy):
+    def __init__(self, name, price):
+        super().__init__(name, price)
+        
+car = Car("Lego", "200.")
+car.describeToy()
+
+-add properties to child class
+class Animal():
+    def __init__(self, name, type):
+        self.name = name
+        self.type = type
+    
+    def describeAnimal(self):
+        print(f"{self.name} has {self.type}")
+
+class Fish(Animal):
+    def __init__(self, name, type, can_swim):
+        super().__init__(name, type)
+        self.can_swim = can_swim
+        
+fish = Fish("Sea Horse", "Pacific", True)
+print(fish.can_swim)
+
+
+- ADD METHOD TO CHILD CLASS
+
+class Animal():
+    def __init__(self, name, type):
+        self.name = name
+        self.type = type
+    
+    def describeAnimal(self):
+        print(f"{self.name} has {self.type}")
+
+class Fish(Animal):
+    def __init__(self, name, type, can_swim):
+        super().__init__(name, type)
+        self.can_swim = can_swim
+    
+    def has_first_slay(self):
+        print(f"{self.name} has first Slay!")
+        
+fish = Fish("Sea Horse", "Pacific", "Sea")
+fish.has_first_slay()
+        
+
