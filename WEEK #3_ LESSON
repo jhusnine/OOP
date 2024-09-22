@@ -60,10 +60,8 @@ class character:
     def describe(self):
         print(f"Si {self.name} ay {self.gun} smg")
         
-codm = character("Artery")
-
-student.describe("shooter")
-student.describe()
+codm = character("Artery", "Shooter")
+codm.describe()
 
 class character:
     def __init__(self, name):
