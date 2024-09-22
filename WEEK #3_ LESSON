@@ -1,0 +1,76 @@
+'''List of contents
+-class - blueprint
+class classSection:
+    name = "IT_CS" 
+
+class classSection():
+    name = "IT_CS"
+    
+object
+class classsection():
+    name = "IT_CS"
+bsit2a = classSection()
+print(basit2a.name)
+
+class hero():
+    name = "Moskov"
+    hp = 100
+    dmg = 50
+marksman = hero()
+print(marksman.name)
+    
+
+
+class fruits():
+    name = "Apple"
+    sweet = True
+
+mansanas
+CLASS AND OBJECT CREATION:
+    - PRINT THE NAME OF THAT OBJECT
+class hero():
+    name = "Moskov"
+    hp = 2255
+    dmg = 1000
+marksman = hero()
+print(marksman.name)
+print(marksman.hp)
+print(marksman.dmg)
+
+
+__INIT__() - INITIALIZED
+
+class character:
+    def __init__(self, name, gun):
+        self.name = name
+        self.gun = gun
+        
+codm = character("Artery", 18)
+codm2 = character("Ghost", 19)
+print(codm.gun, codm2.gun)
+
+
+METHODS
+
+class character:
+    def __init__(self, name, gun):
+        self.name = name
+        self.gun = gun
+        
+    def describe(self):
+        print(f"Si {self.name} ay {self.gun} smg")
+        
+codm = character("Artery")
+
+student.describe("shooter")
+student.describe()
+
+class character:
+    def __init__(self, name):
+        self.name = name
+
+    def describe(self,role):
+        print(f"{self.name} is a {role} hero.")
+        
+ml1 = character("Layla")
+ml1.describe("Marksman")'''
