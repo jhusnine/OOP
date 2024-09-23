@@ -6,7 +6,7 @@ class classSection:
 class classSection():
     name = "IT_CS"
     
-object
+object - variable
 class classsection():
     name = "IT_CS"
 bsit2a = classSection()
