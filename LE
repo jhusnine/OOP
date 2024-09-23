@@ -3,29 +3,31 @@ class AnimeCharacter():
         self.name = name
         self.power_level = power_level
         self.special_move = special_move
-
+        
     def introduce(self):
-        print (f" {self.name} has {self.power_level} and {self.special_move}")
+        print (f" Character Name:{self.name}Power Level:  {self.power_level} Special Move:{self.special_move}")
 
     def __str__(self):
         return f"{self.name} {self.power_level} {self.special_move}"
-        
-class SuperSaiyan():
+
+class SuperSaiyan(AnimeCharacter):
     def __init__(self, name, power_level, special_move, transformation_stage):
-        super().__init__(self, name, power_level, special_move)
-        self.transformation_stage = transformation_stage
+        super().__init__(name, power_level, special_move)
+        self.transformation_stage = (transformation_stage)
 
     def transform(self):
         print("After Transformation")
-        print (f" Name: {self.name} Power Level: {self.power_level} Special Move: {self.special_move} Transformation Stage: {10000*self.transformation_stage}")
+        print ("Transformation Stage:")
+        self.power_level = self.power_level + (10000*self.transformation_stage)
         
- animecharacter = AnimeCharacter("Goku", 9000, "Kamehameha")
- goku.introduce()
+goku = AnimeCharacter("Goku ", 9000, "Kamehameha")
+goku.introduce()
  
- supersaiyan = SuperSaiyan("Naruto", 10000, "Rasengan")
- naruto.introduce()
- 
- goku.transform()
- print(goku.introduce())
-    
+naruto = SuperSaiyan("Naruto", 5000, "Rasengan", 3)
+naruto.introduce()
+
+naruto.transform()
+naruto.introduce()
+print(goku)
+
 
