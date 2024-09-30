@@ -1,0 +1,28 @@
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print("Bark!")
+            
+class Cat:
+    def __init__(self, name):
+        self.name = name
+        
+    def speak(self):
+        print("Meow!")
+        
+class Bird:
+    def __init__(self, name):
+        self.name = name
+        
+    def speak(self):
+            print("Chirp")
+            
+dog = Dog("Siberian Husky")
+cat = Cat("Birman")
+bird = Bird("Gambel’s Quail")
+
+for animal in [dog, cat, bird]:
+    animal.speak()
+    
