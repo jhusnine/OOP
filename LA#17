@@ -6,13 +6,17 @@ class Player:
         
     def attack(self, target):
         target.health = target.health - self.attack_power
-        print(f"{self.name} attack {self.kuki} for {self.attack_power}")
-        print(f"{target.name} Health: {target.health})
+        print(f"the player {self.name}'s name for {self.attack_power}")
+        print(f"the player {target.name}'s health: {target.health} points")
         
 nilou = Player("Nilou", 2000, 100)
 kuki = Player("Kuki", 2500, 150)
 
-nilou.attack(kuki)
-
-print(nilou.name, nilou.health, nilou.attack_power)
-print(kuki.name, kuki.health, kuki.attack_power)
+while nilou.health > 0 and kuki.health >0:
+        kuki.attack(nilou)
+        
+if nilou.health <=0:
+    print(f"{nilou.name} win!")
+        
+else:
+    print(f"{kuki.name} win!")
