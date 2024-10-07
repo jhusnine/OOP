@@ -1,4 +1,4 @@
-class Appliance:
+class Appliance():
     def __init__(self, brand, model, info):
         self.brand = brand
         self.model = model
@@ -29,8 +29,8 @@ class Microwave(Appliance):
         print("Heating food!")
 
 wash = WashingMachine("Samsung", "WD16T6300GP Washer/Dryer", "quality")
-ref = Refrigerator("Samsung", "SBS Family Hub", "quality")
+ref = Refrigerator("Samsung", "SBS Family Hub", "qualty")
 micro = Microwave("Samsung", "TC", "quality")
 
-for appliance in [wash, ref, micro, info]:
-    appliance.call_the_operate()
+for appliance in [wash, ref, micro]:
+    appliance.operate()
