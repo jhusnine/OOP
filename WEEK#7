@@ -1,0 +1,26 @@
+Polymorphish : many forms
+function polymorphism:
+-some function
+-for many types of arguments
+
+example len()
+
+-int
+-float
+INTERABLE - nabibilang
+-string
+-tuple
+-list
+-dictionary
+
+CLASS POLYMORPHISM
+- same class attribute/ method for different objects/ classes
+ -loops (while, for, recursion)
+RECURSION - 995 limit & causes error on 996
+
+INHERITANCE CLASS POLYMORPHISM 
+-attributes/ methods of different chld which are identical
+
+MANIPULATE OBJECT ATTRIBUTE FROM OTHER OBJECT METHOD
+- update using a method from another object
+
