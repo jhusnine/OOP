@@ -1,0 +1,7 @@
+class Character:
+    def __init__(self, name, health, power)
+    self.name = name
+    self.health = heath
+    self.power = power
+
+    def attack(self):
