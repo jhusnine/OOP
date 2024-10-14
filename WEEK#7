@@ -3,7 +3,7 @@ function polymorphism:
 -some function
 -for many types of arguments
 
-example len()
+example len() - gets the maximum lenght of an interable variable/ object
 
 -int
 -float
@@ -23,4 +23,26 @@ INHERITANCE CLASS POLYMORPHISM
 
 MANIPULATE OBJECT ATTRIBUTE FROM OTHER OBJECT METHOD
 - update using a method from another object
+
+class OOP:
+    def __init__(self, section):
+        self.section = self.section
+        
+bsit2a = OOP("2A")
+print(bsit2a.section)
+
+class DSA(OOP):
+    def __init__(self, section):
+        super().__init__(section)
+    
+    def update(self, section_obj, new_section):
+        section_obj.section = "4A"
+        
+bsit3a = DSA("3A")
+bsit3a.update(bsit2a, "4B")
+print(bsit2a.section)
+
+
+
+
 
