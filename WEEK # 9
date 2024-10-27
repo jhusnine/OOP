@@ -101,3 +101,70 @@ print(mat)
 print(van)
 print(choco.has_milk())
 
+OE#6
+class BankAccount:
+    def __init__(self, account_number, balance):
+        """
+        Constructor that initializes the account number and balance.
+        
+        Parameters:
+        account_number (str): The account number.
+        balance (float): The initial balance of the account.
+        """
+        self._account_number = account_number  # Protected attribute
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        """Adds a positive amount to the balance."""
+        if amount > 0:
+            self.__balance += amount
+        else:
+            print("Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        """Deducts a positive amount from the balance if it is less than or equal to the current balance."""
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Withdrawal amount must be positive and less than or equal to the current balance.")
+
+    def display_account_info(self):
+        """Prints the account number and current balance."""
+        print(f"Account Number: {self.get_account_number()}")
+        print(f"Current Balance: {self.get_balance()}")
+
+    def get_account_number(self):
+        """Returns the account number."""
+        return self._account_number
+
+    def get_balance(self):
+        """Returns the current balance."""
+        return self.__balance
+
+    def set_balance(self, balance):
+        """Sets the balance if the new value is a non-negative float."""
+        if balance >= 0:
+            self.__balance = balance
+        else:
+            print("Balance cannot be negative.")
+
+# Testing the BankAccount class
+account = BankAccount("123456789", 1000.0)
+
+# Display initial account information
+account.display_account_info()
+
+# Deposit an amount
+account.deposit(500)
+account.display_account_info()
+
+# Withdraw an amount
+account.withdraw(300)
+account.display_account_info()
+
+# Try setting an invalid balance
+account.set_balance(-200)
+
+# Final account information
+account.display_account_info()
+
