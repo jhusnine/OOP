@@ -31,15 +31,63 @@ class bday:
 bisita = bday("Shanghai")
 bisita.handaan()#to access private method:(_classname__privaemethod)
 
+DECORATOR:
+  -class Bday:
+    def __init__(self, name):
+        self.name = name
+    
+    def handaan(self, func_name):
+        def pinyata(*args, **kwargs):
+            print("Cake, Letson, spag..")
+            func_name(*args, **kwargs)
+            print("Successful!!")
+        return pinyata
+            
+shanghai = Bday("Shanghai")
+
+@shanghai.handaan
+def eatALLYouCan(mga_pagkain):
+    print(mga_pagkain)
+eatALLYouCan("Pritong manok")
+OUTPUT:
+Cake, Letson, spag..
+Pritong manok
+Successful!!
 
 
+*args - list/ array
+**kwargs - key value pair - dictionary
 
 
+-
+ABSTRACTION -hide complex implementation details
+
+METHOD
+
+from abc import ABC, abs
+class BaseClass(ABC):
+  @abstactmethod
+  def method_1(self):
+
+obj1 = BaseClass()
+obj1.method()
 
 
-
-
-
+from abc import ABC, abstractmethod
+class Character(ABC):
+    def __init__(self, name):
+        super().__init__()
+        self.name = name
+    @abstractmethod
+    def special_move(self):
+        pass
+    
+class MainCharacter(Character):
+    def special_move(self, move):
+        print(f"{self.name} use the special move {move}")
+    
+dbz = MainCharacter("Vegeta")
+dbz.special_move("Final Flash")
 
 
 
