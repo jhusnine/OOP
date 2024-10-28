@@ -153,18 +153,49 @@ account = BankAccount("123456789", 1000.0)
 
 # Display initial account information
 account.display_account_info()
-
-# Deposit an amount
 account.deposit(500)
 account.display_account_info()
-
-# Withdraw an amount
 account.withdraw(300)
 account.display_account_info()
-
-# Try setting an invalid balance
 account.set_balance(-200)
-
-# Final account information
 account.display_account_info()
+
+
+ACCESS MODIFIER:
+  -determine the access level of a variable
+PUBLIC:
+  -accessible anywhere
+PROTECTED:
+  -accessible anywhere but not recommended
+  -has one underscore at the beginning
+PRIVATE:
+  -accessible within the class or object only
+  has a two underscore
+Getter Method:
+  -use to retreive the value of a private/protected attribute
+Setter Method:
+  -use to modify/update the value of a protected/protected attribute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
