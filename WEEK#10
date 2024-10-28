@@ -1,0 +1,45 @@
+PRIVATE METHOD:
+  -is a method that is intended to be hidden from outside access.
+  -you can use double underscore(__).
+
+EX:1
+class bday:
+  def __init__(self, name):
+    self.name = name
+  
+  def foods(self): #public method
+    print("Cake, salad, chiken...")
+    self.__lumpia()
+  def __lumpia(self): #private method
+    print(f"Lumpia {self.name}")
+
+bisita = bday("Shanghai")
+bisita._bday__lumpia() #to access private method:(_classname__privaemethod)
+
+EX:2
+class bday:
+    def __init__(self, name):
+        self.name = name
+
+    def __lumpia(self): #private method
+        print(f"Lumpiang {self.name}")
+        
+    def handaan(self): #public method
+        print("Cake, salad, spag..")
+        self.__lumpia()
+
+bisita = bday("Shanghai")
+bisita.handaan()#to access private method:(_classname__privaemethod)
+
+
+
+
+
+
+
+
+
+
+
+
+
