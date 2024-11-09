@@ -1,4 +1,5 @@
 -MODULE
+FILE NAME - turle.py
 from abc import ABC, abstractmethod
 class NinjaTurtle(ABC):
     @property
@@ -43,7 +44,7 @@ class Raphael(NinjaTurtle):
         return f"{self.__alias}"
 
 -main.py
-
+FILE NAME - LA#26
 import turtle
 
 leo = turtle.Leonardo("Leonardo","Katana")
