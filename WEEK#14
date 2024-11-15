@@ -1,0 +1,36 @@
+
+EXAMPLE#1
+import tkinter as TK
+
+windows_ko = TK.Tk()
+name = "Jhusnine Nicole B. Mariano"
+windows_ko.title(f"OOP LA28 {name}")
+windows_ko.geometry("500x500")
+
+windows_ko.mainloop()
+
+-
+TKINTER BASIC WIDGET
+
+label - Display a text
+Button - Triggers a function
+Entry - Allows user text input
+Frame - Groups widgets for better layout and spacing
+
+EXAMPLE#1
+import tkinter as TK
+
+windows_ko = TK.Tk()
+windows_ko.title("OOP LA28")
+windows_ko.geometry("300x200")
+windows_ko.configure(bg="white")
+
+frame = TK.Frame(windows_ko)
+frame.pack(pady=20)
+
+label = TK.Label(frame, text="This is Label")
+label.grid(row=0, column=0, padx=10, pady=10 )
+
+windows_ko.mainloop()
+
+
