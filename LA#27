@@ -1,20 +1,3 @@
-MAIN:
-FILE NAME: LA#27.py
-
-import ninja_turtles
-
-leo = ninja_turtles.Leonardo("Leonardo","Katana")
-gelo = ninja_turtles.Michelangelo("Michelangelo","Nunchakaku")
-tel = ninja_turtles.Donatello("Donatello","Boxstaff")
-rap = ninja_turtles.Raphael("Raphael","Sai")
-
-
-print(leo.alias)
-print(gelo.alias)
-print(tel.alias)
-print(rap.alias)
-
-MODULE:
 FILE NAME: structure.py
 from abc import ABC, abstractmethod
 class NinjaTurtle(ABC):
