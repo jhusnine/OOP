@@ -5,22 +5,25 @@ class Wallet(ABC):
         self.__balance = balance
 
     @abstractmethod
-    def Transaction(self, transactionType, amount):
+    def transaction(self, transactionType, amount):
         pass
 
     @property
     def balance(self):
         return self.__balance
 
+    def _update_balance(self, amount):
+        self.__balance = amount
+
 class BitcoinWallet(Wallet):
     def __init__(self, balance=0.0):
         super().__init__(balance)
 
-    def Transaction(self, transactionType, amount):
+    def transaction(self, transactionType, amount):
         if transactionType == "buy":
-            self.__Wallet_Balance += amount
-        elif transactionType == "sell" and self.__Wallet_Balance >= amount:
-            self.__Wallet_Balance -= amount
+            self._update_balance(self.balance + amount)
+        elif transactionType == "sell" and self.balance >= amount:
+            self._update_balance(self.balance - amount)
         else:
             print("Invalid transaction or insufficient balance!")
 
@@ -28,11 +31,11 @@ class EthereumWallet(Wallet):
     def __init__(self, balance=0.0):
         super().__init__(balance)
 
-    def Transaction(self, transaction_type, amount):
+    def transaction(self, transaction_type, amount):
         if transaction_type == "buy":
-            self.__Wallet_Balance += amount 
-        elif transaction_type == "sell" and self.__Wallet_Balance >= amount:
-            self.__Wallet_Balance -= amount
+            self._update_balance(self.balance + amount)
+        elif transaction_type == "sell" and self.balance >= amount:
+            self._update_balance(self.balance - amount)
         else:
             print("Invalid transaction or insufficient balance!")
 
@@ -41,12 +44,6 @@ Bob = EthereumWallet(2.0)
 
 print("Bitcoin Wallet for Alice")
 print(f"Initial Balance: {Alice.balance} BTC")
-Alice.Transaction("buy", 0.2)
+Alice.transaction("buy", 0.2)
 print(f"Performing Transaction: Buy 0.2 BTC")
 print(f"New Balance: {Alice.balance} BTC\n")
-
-print("Ethereum Wallet for Bob")
-print(f"Initial Balance: {Bob.balance} ETH")
-Bob.Transaction("sell", 1.0)
-print(f"Performing Transaction: Sell 1.0 ETH")
-print(f"New Balance: {Bob.balance} ETH")
