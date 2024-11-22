@@ -1,49 +1,83 @@
 from abc import ABC, abstractmethod
 
 class Wallet(ABC):
-    def __init__(self, balance=0.0):
-        self._balance = balance  # Change from __balance to _balance for protected
-
     @abstractmethod
-    def transaction(self, transactionType, amount):
+    def transaction(self, amount, transaction_type):
         pass
 
     @property
+    @abstractmethod
     def balance(self):
-        return self._balance  # Expose balance as a property
-
-    def _update_balance(self, amount):
-        self._balance = amount  # Update the balance using protected attribute
+        pass
 
 class BitcoinWallet(Wallet):
-    def __init__(self, balance=0.0):
-        super().__init__(balance)
+    def __init__(self, name, btc_balance):
+        self.name = name
+        self.__btc_balance = float(btc_balance)
 
-    def transaction(self, transactionType, amount):
-        if transactionType == "buy":
-            self._update_balance(self.balance + amount)
-        elif transactionType == "sell" and self.balance >= amount:
-            self._update_balance(self.balance - amount)
+    def transaction(self, amount, transaction_type):
+        amount = float(amount)
+        if transaction_type == "buy":
+
+
+            self.__btc_balance += amount
+            print(f"Transaction successful: Bought {amount} BTC.")
+        elif transaction_type == "sell":
+
+            if amount > self.__btc_balance:
+                print("Transaction failed: Insufficient balance.")
+
+                return
+            self.__btc_balance -= amount
+            print(f"Transaction Successful: Sold {amount} BTC.")
         else:
-            print("Invalid transaction or insufficient balance!")
+            print(f"Invalid Transaction type. Use 'buy' or 'sell'.")
+    @property
+    def balance(self):
+        return self.__btc_balance
+    
+    def __str__(self):
+        return f"BitcoinWallet(owner = {self.name}, balance {self.__btc_balance}. BTH)"
 
 class EthereumWallet(Wallet):
-    def __init__(self, balance=0.0):
-        super().__init__(balance)
+    def __init__(self, name, eth_balance):
+        self.name = name
+        self.__eth_balance = float(eth_balance)
 
-    def transaction(self, transaction_type, amount):
+    def transaction(self, amount, transaction_type):
+        amount = float(amount)
         if transaction_type == "buy":
-            self._update_balance(self.balance + amount)
-        elif transaction_type == "sell" and self.balance >= amount:
-            self._update_balance(self.balance - amount)
-        else:
-            print("Invalid transaction or insufficient balance!")
 
-Alice = BitcoinWallet(0.5)
-Bob = EthereumWallet(2.0)
+            self.__eth_balance += amount
+            print(f"Transaction successful: Bought {amount} ETH.")
+        elif transaction_type == "sell":
+
+            if amount > self.__eth_balance:
+                print("Transaction failed: Insufficient balance.")
+                return
+            
+            self.__eth_balance -= amount
+            print(f"Transaction Successful: Sold {amount} ETH.")
+        else:
+            print(f"Invalid Transaction type. Use 'buy' or 'sell'.")
+    @property
+
+    def balance(self):
+        return self.__eth_balance
+    
+    def __str__(self):
+        return f"EthereumWallet(owner = {self.name}, balance {self.__eth_balance}. ETH)"
+
+Alice = BitcoinWallet("Alice", 0.5)
+Bob = EthereumWallet("Bob", 2.0)
 
 print("Bitcoin Wallet for Alice")
 print(f"Initial Balance: {Alice.balance} BTC")
-Alice.transaction("buy", 0.2)
-print(f"Performing Transaction: Buy 0.2 BTC")
+Alice.transaction(0.2, "buy")
 print(f"New Balance: {Alice.balance} BTC\n")
+print("Ethereum Wallet for Bob")
+
+print(f"Initial Balance: {Bob.balance} ETH")
+Bob.transaction(3.0, "sell")
+Bob.transaction(1.0, "sell")
+print(f"New Balance: {Bob.balance} ETH")
