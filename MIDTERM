@@ -10,7 +10,7 @@ class Wallet(ABC):
 
     @property
     def balance(self):
-        return __Wallet_balance
+        return self.__Wallet_balance
 
 class BitcoinWallet(Wallet):
     def __init__(self, balance=0.0):
@@ -18,9 +18,9 @@ class BitcoinWallet(Wallet):
 
     def transaction(self, transaction_type, amount):
         if transaction_type == "buy":
-            self.__Wallet_balance += amount
-        elif transaction_type == "sell" and self.__Wallet_balance >= amount:
-            self.__Wallet_balance -= amount
+            self._Wallet_balance += amount
+        elif transaction_type == "sell" and self._Wallet_balance >= amount:
+            self._Wallet_balance -= amount
         else:
             print("Invalid transaction or insufficient balance!")
 
@@ -30,9 +30,9 @@ class EthereumWallet(Wallet):
 
     def transaction(self, transaction_type, amount):
         if transaction_type == "buy":
-            self.__Wallet_balance += amount
-        elif transaction_type == "sell" and self.__Wallet_balance >= amount:
-            self.__Wallet_balance -= amount
+            self._Wallet_balance += amount
+        elif transaction_type == "sell" and self._Wallet_balance >= amount:
+            self._Wallet_balance -= amount
         else:
             print("Invalid transaction or insufficient balance!")
 
