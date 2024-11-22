@@ -2,10 +2,10 @@ from abc import ABC, abstractmethod
 
 class Wallet(ABC):
     def __init__(self, balance=0.0):
-        self.__balance = balance  # Private balance variable
+        self.__balance = balance
 
     @abstractmethod
-    def transaction(self, transaction_type, amount):
+    def Transaction(self, transactionType, amount):
         pass
 
     @property
@@ -16,11 +16,11 @@ class BitcoinWallet(Wallet):
     def __init__(self, balance=0.0):
         super().__init__(balance)
 
-    def transaction(self, transaction_type, amount):
-        if transaction_type == "buy":
-            self._Wallet__balance += amount  # Modify private balance
-        elif transaction_type == "sell" and self._Wallet__balance >= amount:
-            self._Wallet__balance -= amount  # Modify private balance
+    def Transaction(self, transactionType, amount):
+        if transactionType == "buy":
+            self.__Wallet_Balance += amount
+        elif transactionType == "sell" and self.__Wallet_Balance >= amount:
+            self.__Wallet_Balance -= amount
         else:
             print("Invalid transaction or insufficient balance!")
 
@@ -28,25 +28,25 @@ class EthereumWallet(Wallet):
     def __init__(self, balance=0.0):
         super().__init__(balance)
 
-    def transaction(self, transaction_type, amount):
+    def Transaction(self, transaction_type, amount):
         if transaction_type == "buy":
-            self._Wallet__balance += amount  # Modify private balance
-        elif transaction_type == "sell" and self._Wallet__balance >= amount:
-            self._Wallet__balance -= amount  # Modify private balance
+            self.__Wallet_Balance += amount 
+        elif transaction_type == "sell" and self.__Wallet_Balance >= amount:
+            self.__Wallet_Balance -= amount
         else:
             print("Invalid transaction or insufficient balance!")
 
-alice_wallet = BitcoinWallet(0.5)
-bob_wallet = EthereumWallet(2.0)
+Alice = BitcoinWallet(0.5)
+Bob = EthereumWallet(2.0)
 
 print("Bitcoin Wallet for Alice")
-print(f"Initial Balance: {alice_wallet.balance} BTC")
-alice_wallet.transaction("buy", 0.2)  # Alice buys 0.2 BTC
+print(f"Initial Balance: {Alice.balance} BTC")
+Alice.Transaction("buy", 0.2)
 print(f"Performing Transaction: Buy 0.2 BTC")
-print(f"New Balance: {alice_wallet.balance} BTC\n")
+print(f"New Balance: {Alice.balance} BTC\n")
 
 print("Ethereum Wallet for Bob")
-print(f"Initial Balance: {bob_wallet.balance} ETH")
-bob_wallet.transaction("sell", 1.0)  # Bob sells 1 ETH
+print(f"Initial Balance: {Bob.balance} ETH")
+Bob.Transaction("sell", 1.0)
 print(f"Performing Transaction: Sell 1.0 ETH")
-print(f"New Balance: {bob_wallet.balance} ETH")
+print(f"New Balance: {Bob.balance} ETH")
